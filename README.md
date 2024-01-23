@@ -166,6 +166,17 @@ DB_PORT=3306
 
 ### マイグレーション
 
+```
+php artisan make:migration create_contacts_table
+php artisan make:migration create_categories_table
+```
+
+users テーブルはデフォルトで存在しているため、作成しない。
+
+```
+php artisan migrate
+```
+
 ### シーディング
 
 ## 使用技術(実行環境)
@@ -177,7 +188,7 @@ DB_PORT=3306
 
 ## ER 図
 
-< - - - 作成した ER 図の画像 - - - >
+![ER図](ER図.png)
 
 ## URL
 
