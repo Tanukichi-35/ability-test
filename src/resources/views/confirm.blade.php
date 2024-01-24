@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="div__main">
-  <h2 class="logo">Confirm</h2>
+  <h2 class="h2__confirm">Confirm</h2>
   <form action="" class="form__confirm">
     <table class="table__confirm">
       <tr>
