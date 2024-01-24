@@ -8,13 +8,17 @@
   <title>Todo App</title>
   <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}" />
   <link rel="stylesheet" href="{{ asset('css/common.css') }}" />
-  @yield('css')
+  <link rel="stylesheet" href="{{ asset('css/thanks.css') }}" />
 </head>
 
 <body>
-  <h2>お問い合わせありがとうございました</h2>
-  <button>HOME</button>
-  <p>Thank you</p>
+  <div class="div__thanks">
+    <div class="div__front">
+      <h2 class="h2__thanks">お問い合わせありがとうございました</h2>
+      <button class="button__home">HOME</button>
+    </div>
+    <p class="p__thanks">Thank you</p>
+  </div>
 </body>
 
 </html>
