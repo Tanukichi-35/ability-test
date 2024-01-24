@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="div__main">
-  <h2 class="logo">Contact</h2>
+  <h2 class="h2__contact">Contact</h2>
   <form class = "form__contact" action="/confirm" method="post">
     <div class = "div__name">
       <label class="label__name form__label form__required" for="last_name">お名前</label>
