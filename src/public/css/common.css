@@ -1,0 +1,16 @@
+body{
+  color: #8b7969;
+  background-color: #fff;
+  font-family: 'Merriweather', 'Noto Sans JP', sans-serif;
+}
+
+.header__inner{
+  display: flex;
+  justify-content:center;
+  border-bottom: #e0dfde solid 2px;
+}
+
+.header__logo {
+  text-decoration: none;
+  font-size: 30px;
+}
