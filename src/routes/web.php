@@ -24,3 +24,7 @@ Route::get('/confirm', function () {
 Route::get('/thanks', function () {
     return view('thanks');
 });
+
+Route::get('/register', function () {
+    return view('register');
+});
