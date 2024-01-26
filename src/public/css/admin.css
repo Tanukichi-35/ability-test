@@ -31,7 +31,7 @@
   width: 200px;
 }
 
-.select__search-date {
+.input__search-date {
   width: 160px;
 }
 
@@ -64,4 +64,139 @@
   background-color: #fff;
   color: #8b7969;
   padding: 5px 15px;
+  cursor: pointer;
+}
+
+.div__modal{
+  display: none;
+  position: relative;
+}
+
+.div__modal-contents {
+  width: 65%;
+  height: 80%;
+  border: 1px solid #000;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+}
+
+.div__modal-close {
+  position: absolute;
+  right: 40px;
+  top: 20px;
+}
+
+.button__modal-close {
+  background: transparent;
+  /* border-color: transparent; */
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  width: 28px;
+  display: block;
+  height: 28px;
+  border: 2px solid #000;
+  position: relative;
+}
+
+.button__modal-close {
+  background: transparent;
+  /* border-color: transparent; */
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  width: 28px;
+  display: block;
+  height: 28px;
+  border: 2px solid #000;
+  border-radius: 50%;
+  position: relative;
+}
+
+.button__modal-close::before,
+.button__modal-close::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1px;
+  height: 10px;
+  background-color: #000;
+}
+
+.button__modal-close::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.button__modal-close::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* .button__modal-close span {
+  position: relative;
+  width: 50%;
+  height: 1px;
+  background: black;
+  display: block;
+  left: 25%;
+  transform: translate(-50%, -50%);
+}
+
+.button__modal-close span:nth-child(1) {
+  transform: rotate(45deg);
+}
+
+.button__modal-close span:nth-child(2) {
+  transform: rotate(-45deg);
+} */
+
+.div__overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: grey;
+  opacity: .6;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.table__detail{
+  width: 70%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+
+.table__detail tr {
+  height: 40px;
+}
+
+.table__detail th {
+  width: 30%;
+  /* padding-left: 30px; */
+  text-align: left;
+}
+
+.table__detail td {
+  width: 70%;
+  /* padding-left: 20px; */
+  text-align: left;
+}
+
+.button__delete{
+  background-color: #BA370D;
+  color: #fff;
+  padding: 5px 10px;
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
 }
