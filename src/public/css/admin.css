@@ -1,0 +1,67 @@
+.div__main{
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.h2__admin{
+}
+
+.div__search{
+  width: 100%;
+}
+
+.form__search{
+  height: 40px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.input__search-word{
+  width: 400px;
+}
+
+.select__search-gender{
+  width: 100px;
+}
+
+.select__search-type{
+  width: 200px;
+}
+
+.select__search-date {
+  width: 160px;
+}
+
+.button__search{
+  width: 80px;
+  color: #fff;
+  background-color: #82756A;
+}
+
+.button__reset {
+  width: 80px;
+  color: #fff;
+  background-color: #82756A;
+}
+
+.table__contacts{
+  width: 100%;
+}
+
+.table__contacts tr{
+  height: 5vh;
+}
+
+.tr__header{
+  color: #fff;
+  background-color: #8B7969;
+}
+
+.button__detail{
+  background-color: #fff;
+  color: #8b7969;
+  padding: 5px 15px;
+}
