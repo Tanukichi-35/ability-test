@@ -22,9 +22,13 @@ Route::get('/confirm', [
     ContactController::class, 'confirm'
 ]);
 
-Route::get('/thanks', function () {
-    return view('thanks');
-});
+Route::post('/store', [
+    ContactController::class, 'store'
+]);
+
+// Route::get('/thanks', function () {
+//     return view('thanks');
+// });
 
 Route::get('/register', function () {
     return view('register');

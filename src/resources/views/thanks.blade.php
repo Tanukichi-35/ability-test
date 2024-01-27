@@ -15,7 +15,10 @@
   <div class="div__thanks">
     <div class="div__front">
       <h2 class="h2__thanks">お問い合わせありがとうございました</h2>
-      <button class="button__home">HOME</button>
+      <form action="/" method="get">
+        @csrf
+        <button class="button__home">HOME</button>
+      </form>
     </div>
     <p class="p__thanks">Thank you</p>
   </div>
