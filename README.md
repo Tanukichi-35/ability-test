@@ -166,18 +166,162 @@ DB_PORT=3306
 
 ### マイグレーション
 
+マイグレーションファイルの作成
+
 ```
 php artisan make:migration create_contacts_table
 php artisan make:migration create_categories_table
 ```
 
-users テーブルはデフォルトで存在しているため、作成しない。
+#### XXXX_XX_XX_XXXXXX_create_contacts_table.php
+
+```
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateContactsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('contacts', function (Blueprint $table) {
+            $table->id();
+            $table->bigInteger('category_id');
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->tinyInteger('gender');
+            $table->string('email');
+            $table->string('tell');
+            $table->string('address');
+            $table->string('building')->nullable();
+            $table->text('detail');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('contacts');
+    }
+}
+```
+
+#### XXXX_XX_XX_XXXXXX_create_categories_table.php
+
+```
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateCategoriesTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('categories', function (Blueprint $table) {
+            $table->id();
+            $table->text('content')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('categories');
+    }
+}
+```
+
+マイグレーションの実行し、テーブルを作成
 
 ```
 php artisan migrate
 ```
 
 ### シーディング
+
+シーディングファイルの作成
+
+```
+php artisan make:seeder CategoriesTableSeeder
+```
+
+#### CategoriesTableSeeder.php
+
+```
+
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+
+class CategoriesTableSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        $param = [
+            'content' => '商品のお届けについて',
+        ];
+        DB::table('categories')->insert($param);
+
+        $param = [
+            'content' => '商品の交換について',
+        ];
+        DB::table('categories')->insert($param);
+
+        $param = [
+            'content' => '商品トラブル',
+        ];
+        DB::table('categories')->insert($param);
+
+        $param = [
+            'content' => 'ショップへのお問い合わせ',
+        ];
+        DB::table('categories')->insert($param);
+
+        $param = [
+            'content' => 'その他',
+        ];
+        DB::table('categories')->insert($param);
+    }
+}
+```
+
+シーディングを実行し、ダミーデータを作成
+
+```
+php artisan db:seed
+```
 
 ## 使用技術(実行環境)
 
