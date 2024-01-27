@@ -17,7 +17,7 @@
 }
 
 .form__contact>div{
-  margin: 25px;
+  /* margin: 25px; */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -129,4 +129,11 @@
   color: #fff;
   display: block;
   margin: 0 auto;
+  cursor: pointer;
+}
+
+/* エラーメッセージ */
+.form__error{
+  color: #ff0000;
+  margin: 0;
 }
