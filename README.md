@@ -329,6 +329,7 @@ php artisan db:seed
 - Laravel 8.6.12
 - MySQL 8.0.26
 - nginx 1.21.1
+- fortify 1.19
 
 ## ER 図
 

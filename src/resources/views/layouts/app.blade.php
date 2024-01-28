@@ -21,9 +21,18 @@
       <h2 class="header__logo">
         FashionablyLate
       </h2>
-      <button class="button__register" id="button__register">register</button>
-      <button class="button__login" id="button__login">login</button>
-      <button class="button__logout" id="button__logout">logout</button>
+      <form action="/register" method="GET" id="button__register">
+        @csrf
+        <button class="button__register">register</button>
+      </form>
+      <form action="/login" method="GET" id="button__login">
+        @csrf
+        <button class="button__login">login</button>
+      </form>
+      <form action="/logout" method="POST" id="button__logout">
+        @csrf
+        <button class="button__logout">logout</button>
+      </form>
     </div>
   </header>
 

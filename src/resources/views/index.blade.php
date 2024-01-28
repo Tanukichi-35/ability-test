@@ -53,7 +53,7 @@
     <div class="div__email">
       <label class="label__email form__label form__required" for="input_email">メールアドレス</label>
       <div class="div__input">
-        <input class="input__email" id="input_email" name="email" placeholder="例:test@example.com" value="{{old ('email')}}" >
+        <input class="input__email" type="email" id="input_email" name="email" placeholder="例:test@example.com" value="{{old ('email')}}" >
       </div>
     </div>
     <div class="form__error">

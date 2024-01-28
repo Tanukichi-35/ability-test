@@ -184,9 +184,3 @@
   margin: 0 auto;
   cursor: pointer;
 }
-
-/* エラーメッセージ */
-.form__error{
-  color: #ff0000;
-  margin: 0;
-}
