@@ -53,4 +53,49 @@ class Contact extends Model
         $category = Category::find($this->category_id);
         return $category->content;
     }
+
+    // 検索機能
+    public function category(){
+        return $this->belongsTo('App\Models\Category');
+    }
+
+    public function scopeKeywordSearch($query, $keyword)
+    {
+        // dd($keyword);
+        if (!empty($keyword)) {
+            // $query->where('last_name', 'like', '%'.$keyword.'%');
+            //  ->orWhere("first_name", "like", "%".$keyword."%")
+            //  ->orWhere("email", "like", "%".$keyword."%");
+            $query->where(function ($query) use ($keyword) {
+            $query->where("last_name", "like", "%".$keyword."%")
+                ->orWhere("first_name", "like", "%".$keyword."%")
+                ->orWhere("email", "like", "%".$keyword."%");
+            });
+        }
+    }
+
+    public function scopeGenderSearch($query, $gender)
+    {
+        // dd($gender);
+        if (!empty($gender) || $gender != 0) {
+            $query->where('gender', $gender);
+        }
+    }
+
+    public function scopeCategorySearch($query, $category_id)
+    {
+        // dd($category_id);
+        if (!empty($category_id) || $category_id != 0) {
+            $query->where('category_id', $category_id);
+        }
+    }
+
+    public function scopeDateSearch($query, $date)
+    {
+        // dd($date);
+        if (!empty($date)) {
+            $query->where('created_at', $date)
+            ->orWhere('updated_at', $date);
+        }
+    }
 }

@@ -42,4 +42,17 @@ class ContactController extends Controller
         Contact::find($request->id)->delete();
         return redirect('/admin');
     }
+
+    public function search(Request $request){
+        // dd($request->keyword);
+        $contacts = Contact::with('category')->KeywordSearch($request->keyword)->GenderSearch($request->gender)->CategorySearch($request->category_id)->DateSearch($request->date)->Paginate(7);
+        // $contacts = Contact::with('category')->DateSearch($request->date)->CategorySearch($request->category_id)->GenderSearch($request->gender)->KeywordSearch($request->keyword)->Paginate(7);
+        $categories = Category::all();
+
+        return view('admin', compact('contacts', 'categories', 'request'));
+    }
+
+    public function reset(){
+        return redirect('/admin');
+    }
 }

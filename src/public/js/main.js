@@ -38,5 +38,10 @@ window.onload = function () {
     button__logout.style.display = 'block';
     button__logout.style.visibility = 'visible';
   }
-
+  else if (location.href.indexOf("http://localhost/search") === 0){
+    button__register.style.display = 'none';
+    button__login.style.display = 'none';
+    button__logout.style.display = 'block';
+    button__logout.style.visibility = 'visible';
+  }
 }

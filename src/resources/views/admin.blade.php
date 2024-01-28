@@ -9,24 +9,26 @@
 <div class="div__main">
   <h2 class="h2__register">Admin</h2>
   <div class="div__search">
-    <form action="" class="form__search">
-      <input type="text" name="word" class="input__search-word" placeholder="名前やメールアドレスを入力してください">
-      <select name="" id="" class="select__search-gender">
+    <form method="GET" class="form__search">
+      @csrf
+      <input type="text" name="keyword" class="input__search-word" placeholder="名前やメールアドレスを入力してください" @if (isset( $request )) value="{{$request['keyword']}}"@endif>
+      <select name="gender" id="" class="select__search-gender">
         <option value="" style='display:none;' disabled selected>性別</option>
-        <option value="0">全て</option>
-        <option value="1">男性</option>
-        <option value="2">女性</option>
-        <option value="3">その他</option>
+        <option value="0" @if(isset( $request ) && $request['gender'] == 0) selected @endif>全て</option>
+        <option value="1" @if(isset( $request ) && $request['gender'] == 1) selected @endif>男性</option>
+        <option value="2" @if(isset( $request ) && $request['gender'] == 2) selected @endif>女性</option>
+        <option value="3" @if(isset( $request ) && $request['gender'] == 3) selected @endif>その他</option>
       </select>
-      <select name="" id="" class="select__search-type">
+      <select name="category_id" id="" class="select__search-type">
         <option value="" style='display:none;' disabled selected>お問い合わせの種類</option>
+        <option value="0">全て</option>
         @foreach ($categories->all() as $category)
-        <option value="{{$category->id}}" @if(old('category_id') == $category->id) selected @endif>{{$category->content}}</option>
+        <option value="{{$category->id}}" @if(isset( $request ) && $request['category_id'] == $category->id) selected @endif>{{$category->content}}</option>
         @endforeach
       </select>
-      <input type="text" name="" id="datepicker" class="input__search-date" placeholder="年/月/日">
-      <button class="button__search">検索</button>
-      <button class="button__reset">リセット</button>
+      <input type="text" name="date" id="datepicker" class="input__search-date" placeholder="年/月/日" @if (isset( $request )) value="{{$request['date']}}"@endif>
+      <button class="button__search" formaction="/search">検索</button>
+      <button class="button__reset" formaction="/reset">リセット</button>
     </form>
   </div>
   {{ $contacts->links('vendor.pagination.topics') }}

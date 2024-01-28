@@ -52,11 +52,12 @@
 }
 
 .table__contacts tr{
-  height: 5vh;
+  height: 30px;
 }
 
 .table__contacts td{
   text-align: left;
+  padding: 10px 30px;
 }
 
 .tr__header{

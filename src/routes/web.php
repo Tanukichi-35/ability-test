@@ -55,3 +55,11 @@ Route::middleware('auth')->group(function () {
 // Route::get('/login', function () {
 //     return view('login');
 // });
+
+Route::get('/search', [
+    ContactController::class, 'search'
+]);
+
+Route::get('/reset', [
+    ContactController::class, 'reset'
+]);
