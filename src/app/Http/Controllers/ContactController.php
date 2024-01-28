@@ -31,9 +31,15 @@ class ContactController extends Controller
         $contact = $request->only(['last_name', 'first_name', 'gender', 'email', 'tell_1', 'tell_2', 'tell_3', 'address', 'building', 'category_id', 'detail']);
         // dd($contact);
         $contact['gender'] = Contact::getGenderNo($contact['gender']);
-        $contact['tell'] =Contact::getTellNo($contact['tell_1'],$contact['tell_2'],$contact['tell_3']);
+        $contact['tell'] = Contact::getTellNo($contact['tell_1'],$contact['tell_2'],$contact['tell_3']);
         // dd($contact);
         Contact::create($contact);
         return view('thanks');
+    }
+
+    public function delete(Request $request){
+        // dd($request);
+        Contact::find($request->id)->delete();
+        return redirect('/admin');
     }
 }

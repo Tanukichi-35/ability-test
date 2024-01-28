@@ -28,6 +28,10 @@ Route::post('/store', [
     ContactController::class, 'store'
 ]);
 
+Route::delete('/delete', [
+    ContactController::class, 'delete'
+]);
+
 // Route::get('/thanks', function () {
 //     return view('thanks');
 // });

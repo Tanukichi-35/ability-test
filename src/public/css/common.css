@@ -52,3 +52,15 @@ body{
 ::placeholder {
   color: #A0A0A0;
 }
+
+input, textarea, select{
+  padding-left: 20px;
+  background-color: #F4F4F4;
+  border: none;
+}
+
+button{
+  background-color: #82756A;
+  color: #fff;
+  cursor: pointer;
+}

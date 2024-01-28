@@ -28,10 +28,10 @@
   width: 600px;
 }
 
-.div__input input, .div__input select, .div__input textarea{
+/* .div__input input, .div__input select, .div__input textarea{
   background-color: #F4F4F4;
   border: none;
-}
+} */
 
 .form__required::after {
   content: "※";
@@ -178,9 +178,9 @@
 .button__confirm{
   font-size: 20px;
   padding: 5px 30px;
-  background-color: #82756a;
-  color: #fff;
   display: block;
   margin: 0 auto;
-  cursor: pointer;
+  /* background-color: #82756a;
+  color: #fff;
+  cursor: pointer; */
 }

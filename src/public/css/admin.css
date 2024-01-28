@@ -55,6 +55,10 @@
   height: 5vh;
 }
 
+.table__contacts td{
+  text-align: left;
+}
+
 .tr__header{
   color: #fff;
   background-color: #8B7969;
