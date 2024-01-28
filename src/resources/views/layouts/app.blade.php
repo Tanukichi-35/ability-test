@@ -17,15 +17,20 @@
 <body>
   <header class="header">
     <div class="header__inner">
+      <button class="button__dummy" id="button__dummy"></button>
       <h2 class="header__logo">
         FashionablyLate
       </h2>
+      <button class="button__register" id="button__register">register</button>
+      <button class="button__login" id="button__login">login</button>
+      <button class="button__logout" id="button__logout">logout</button>
     </div>
   </header>
 
   <main>
     @yield('content')
   </main>
+  <script src="{{ asset('js/main.js') }}"></script>
 </body>
 
 </html>

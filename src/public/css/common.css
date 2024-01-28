@@ -6,11 +6,33 @@ body{
 
 .header__inner{
   display: flex;
-  justify-content:center;
+  justify-content:space-between;
   border-bottom: #e0dfde solid 2px;
 }
 
 .header__logo {
   text-decoration: none;
   font-size: 30px;
+}
+
+.header__inner button{
+  width: 80px;
+  height: 40px;
+  margin: auto 8% auto 0;
+}
+
+.button__dummy{
+  visibility: hidden;
+}
+
+.button__register{
+  display: none;
+}
+
+.button__login {
+  display: none;
+}
+
+.button__logout{
+  display: none;
 }
