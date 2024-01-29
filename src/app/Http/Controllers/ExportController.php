@@ -12,7 +12,7 @@ class ExportController extends Controller
 {
     public function export(Request $request)
     {
-        dd($request);
+        // dd($request);
         $contacts = Contact::all();
         $csvHeader = ['ID', '姓', '名', '性別', 'メールアドレス', '電話番号', '住所', '建物名', '問い合わせの種類', '問い合わせ内容', '作成日時', '更新日時'];
         $csvData = $contacts->toArray();
