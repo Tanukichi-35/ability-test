@@ -77,15 +77,13 @@
     </div>
     <div class="form__error">
       <ul>
-        @error('tell_1')
-          @error('tell_2')
-            @error('tell_3')
-            <li>
-              {{$message}}
-            </li>
-            @enderror
-          @enderror
-        @enderror
+        @if ($errors->has('tell_1'))
+          <li>{{$errors->first('tell_1')}}</li>
+        @elseif ($errors->has('tell_2'))
+          <li>{{$errors->first('tell_2')}}</li>
+        @elseif ($errors->has('tell_3'))
+          <li>{{$errors->first('tell_3')}}</li>
+        @endif
       </ul>
     </div>
     <div class="div__address">
