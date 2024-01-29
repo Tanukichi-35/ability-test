@@ -113,7 +113,7 @@
     <div class="div__category">
       <label class="label__category form__label form__required" for="select_category">お問い合わせの種類</label>
       <div class="div__input">
-        <select class="select__category" name="category_id">
+        <select class="select__category" name="category_id" onchange="Color(this)">
           <option value="" style='display:none;' disabled selected>選択してください</option>
           @foreach ($categories->all() as $category)
           <option value="{{$category->id}}" @if(old('category_id') == $category->id) selected @endif>{{$category->content}}</option>

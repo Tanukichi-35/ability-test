@@ -66,6 +66,14 @@ body{
   color: #A0A0A0;
 }
 
+select {
+  color: #A0A0A0;
+}
+
+select option{
+  color: #000;
+}
+
 input, textarea, select{
   padding-left: 20px;
   background-color: #F4F4F4;

@@ -50,3 +50,11 @@ window.onload = function () {
     button__logout.style.visibility = 'visible';
   }
 }
+
+function Color(sample){
+ if(isNaN(sample.value)){
+  sample.style.color = '#A0A0A0';
+ }else{
+  sample.style.color = '#000';
+ }
+}

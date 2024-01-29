@@ -57,6 +57,10 @@
   cursor: pointer;
 }
 
+.input__search-date::placeholder{
+  color: #8B7969;
+}
+
 .div__gender, .div__category, .div__date {
   display: inline-flex;
   position: relative;
@@ -103,15 +107,15 @@
   margin-bottom: 50px;
 }
 
-.table__contacts>tr{
-  height: 30px;
-  border-left: 1px solid #E0DFDE;
-  border-right: 1px solid #E0DFDE;
-}
-
 .tr__header>th{
   text-align: left;
   padding: 10px 30px;
+}
+
+.tr__contents {
+  height: 30px;
+  border-left: 1px solid #E0DFDE;
+  border-right: 1px solid #E0DFDE;
 }
 
 .tr__contents>td{
