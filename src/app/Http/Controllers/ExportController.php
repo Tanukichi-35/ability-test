@@ -18,10 +18,6 @@ class ExportController extends Controller
         $csvData = $contacts->toArray();
         $date = new DateTime();
         $fileName = 'Contacts'.$date->format('_ymdHis').'.csv';
-        // $dateTime = new DateTime($csvData[0]['created_at']);
-        // dd(new DateTime($csvData[0]['created_at'])->format('Y/m/d H:i:s'));
-        // dd($dateTime->format('Y/m/d H:i:s'));
-        // dd($csvData[0]['created_at']);
 
         $response = new StreamedResponse(function () use ($csvHeader, $csvData) {
             $handle = fopen('php://output', 'w');
@@ -48,15 +44,12 @@ class ExportController extends Controller
                 fwrite($handle, $dateTime->format('Y/m/d H:i:s').',');
                 $dateTime = new DateTime($row['updated_at']);
                 fwrite($handle, $dateTime->format('Y/m/d H:i:s')."\n");
-                // fwrite($handle, new DateTime($row['updated_at'])->format('YYYY/mm/dd HH:ii:ss').',');
-                // fwrite($handle, $row['updated_at']->format('YYYY/mm/dd HH:ii:ss'));
             }
 
             fclose($handle);
         }, 200, [
             'Content-Type' => 'text/csv',
-            // 'Content-Disposition' => 'attachment; filename="contacts.csv"',
-            'Content-Disposition' => 'attachment; filename=contacts.csv',
+            'Content-Disposition' => 'attachment; filename="contacts.csv"',
         ]);
 
         return $response;
