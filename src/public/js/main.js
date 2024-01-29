@@ -3,6 +3,7 @@ window.onload = function () {
   const button__register = document.getElementById('button__register');
   const button__login = document.getElementById('button__login');
   const button__logout = document.getElementById('button__logout');
+  const select__category = document.getElementById('select__category');
 
   // if (location.href == "http://localhost/") {
   if (location.pathname == "/") {
@@ -10,6 +11,7 @@ window.onload = function () {
     button__register.style.visibility = 'hidden';
     button__login.style.display = 'none';
     button__logout.style.display = 'none';
+    Color(select__category);
   }
   // else if (location.href.indexOf("http://localhost/confirm") === 0){
   else if (location.pathname == "/confirm"){
@@ -51,10 +53,10 @@ window.onload = function () {
   }
 }
 
-function Color(sample){
- if(isNaN(sample.value)){
-  sample.style.color = '#A0A0A0';
- }else{
-  sample.style.color = '#000';
- }
+function Color(sample) {
+  if(!(sample.value)){
+    sample.style.color = '#A0A0A0';
+  }else{
+    sample.style.color = '#000';
+  }
 }
