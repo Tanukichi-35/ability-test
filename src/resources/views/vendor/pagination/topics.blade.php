@@ -7,9 +7,11 @@
   li{
     width: 30px;
     border: 1px solid #E0DFDE;
+    border-radius: 10%;
   }
 
   a{
+    display: block;
     text-decoration: none;
     color: #8B7969;
   }

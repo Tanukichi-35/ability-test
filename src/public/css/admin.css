@@ -11,28 +11,68 @@
   width: 100%;
 }
 
+/* 検索フォーム */
 .form__search{
-  height: 40px;
+  /* height: 40px; */
   margin-bottom: 20px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
+.form__search input, .form__search select {
+  height: 40px;
+}
+
 .input__search-word{
-  width: 400px;
+  width: 300px;
+  background-color: #FBFBFB;
+  color: #8B7969;
+  border: 1px solid #E3DED9;
 }
 
 .select__search-gender{
   width: 100px;
+  background-color: #F4F4F4;
+  color: #8B7969;
+  border: 1px solid #E3DED9;
+  cursor: pointer;
+  appearance: none;
 }
 
-.select__search-type{
-  width: 200px;
+.select__search-category{
+  width: 180px;
+  background-color: #F4F4F4;
+  color: #8B7969;
+  border: 1px solid #E3DED9;
+  cursor: pointer;
+  appearance: none;
 }
 
 .input__search-date {
-  width: 160px;
+  width: 120px;
+  background-color: #F4F4F4;
+  color: #8B7969;
+  border: 1px solid #E3DED9;
+  cursor: pointer;
+}
+
+.div__gender, .div__category, .div__date {
+  display: inline-flex;
+  position: relative;
+}
+
+.div__gender::after, .div__category::after, .div__date::after {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  width: 10px;
+  height: 7px;
+  transform: translateY(-50%);
+  background-color: #82756a;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  content: '';
+  pointer-events: none;
 }
 
 .button__search{
@@ -44,20 +84,40 @@
 .button__reset {
   width: 80px;
   color: #fff;
-  background-color: #82756A;
+  background-color: #D9C6B5;
 }
 
+.button__export{
+  float: left;
+  background-color: #EDEAE6;
+  color: #8B7969;
+  width: 100px;
+  height: 30px;
+  border: none;
+  margin-bottom: 15px;
+}
+
+/* contactsテーブル */
 .table__contacts{
   width: 100%;
+  margin-bottom: 50px;
 }
 
-.table__contacts tr{
+.table__contacts>tr{
   height: 30px;
+  border-left: 1px solid #E0DFDE;
+  border-right: 1px solid #E0DFDE;
 }
 
-.table__contacts td{
+.tr__header>th{
   text-align: left;
   padding: 10px 30px;
+}
+
+.tr__contents>td{
+  text-align: left;
+  padding: 10px 30px;
+  border-bottom: 1px solid #E0DFDE;
 }
 
 .tr__header{
@@ -66,12 +126,14 @@
 }
 
 .button__detail{
-  background-color: #fff;
-  color: #8b7969;
+  background-color: #FCFCFC;
+  color: #D9C6B5;
+  border: 1px solid #E0DFDE;
   padding: 5px 15px;
   cursor: pointer;
 }
 
+/* モーダルウィンドウ */
 .div__modal{
   display: none;
   position: relative;
@@ -79,7 +141,7 @@
 
 .div__modal-contents {
   width: 65%;
-  height: 80%;
+  height: 90%;
   border: 1px solid #000;
   position: fixed;
   top: 50%;
@@ -96,27 +158,13 @@
 
 .button__modal-close {
   background: transparent;
-  /* border-color: transparent; */
   padding: 0;
   margin: 0;
   cursor: pointer;
   width: 28px;
   display: block;
   height: 28px;
-  border: 2px solid #000;
-  position: relative;
-}
-
-.button__modal-close {
-  background: transparent;
-  /* border-color: transparent; */
-  padding: 0;
-  margin: 0;
-  cursor: pointer;
-  width: 28px;
-  display: block;
-  height: 28px;
-  border: 2px solid #000;
+  border: 1px solid #8B7969;
   border-radius: 50%;
   position: relative;
 }
@@ -139,24 +187,6 @@
 .button__modal-close::after {
   transform: translate(-50%, -50%) rotate(-45deg);
 }
-
-/* .button__modal-close span {
-  position: relative;
-  width: 50%;
-  height: 1px;
-  background: black;
-  display: block;
-  left: 25%;
-  transform: translate(-50%, -50%);
-}
-
-.button__modal-close span:nth-child(1) {
-  transform: rotate(45deg);
-}
-
-.button__modal-close span:nth-child(2) {
-  transform: rotate(-45deg);
-} */
 
 .div__overlay {
   position: fixed;

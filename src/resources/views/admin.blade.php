@@ -11,37 +11,46 @@
   <div class="div__search">
     <form method="GET" class="form__search">
       @csrf
-      <input type="text" name="keyword" class="input__search-word" placeholder="名前やメールアドレスを入力してください" @if (isset( $request )) value="{{$request['keyword']}}"@endif>
-      <select name="gender" id="" class="select__search-gender">
-        <option value="" style='display:none;' disabled selected>性別</option>
-        <option value="0" @if(isset( $request ) && $request['gender'] == 0) selected @endif>全て</option>
-        <option value="1" @if(isset( $request ) && $request['gender'] == 1) selected @endif>男性</option>
-        <option value="2" @if(isset( $request ) && $request['gender'] == 2) selected @endif>女性</option>
-        <option value="3" @if(isset( $request ) && $request['gender'] == 3) selected @endif>その他</option>
-      </select>
-      <select name="category_id" id="" class="select__search-type">
-        <option value="" style='display:none;' disabled selected>お問い合わせの種類</option>
-        <option value="0">全て</option>
-        @foreach ($categories->all() as $category)
-        <option value="{{$category->id}}" @if(isset( $request ) && $request['category_id'] == $category->id) selected @endif>{{$category->content}}</option>
-        @endforeach
-      </select>
-      <input type="text" name="date" id="datepicker" class="input__search-date" placeholder="年/月/日" @if (isset( $request )) value="{{$request['date']}}"@endif>
+      <div class="div__keyword">
+        <input type="text" name="keyword" class="input__search-word" placeholder="名前やメールアドレスを入力してください" @if (isset( $request )) value="{{$request['keyword']}}"@endif>
+      </div>
+      <div class="div__gender">
+        <select name="gender" class="select__search-gender">
+          <option value="" style='display:none;' disabled selected>性別</option>
+          <option value="0" @if(isset( $request ) && $request['gender'] == 0) selected @endif>全て</option>
+          <option value="1" @if(isset( $request ) && $request['gender'] == 1) selected @endif>男性</option>
+          <option value="2" @if(isset( $request ) && $request['gender'] == 2) selected @endif>女性</option>
+          <option value="3" @if(isset( $request ) && $request['gender'] == 3) selected @endif>その他</option>
+        </select>
+      </div>
+      <div class="div__category">
+        <select name="category_id" class="select__search-category">
+          <option value="" style='display:none;' disabled selected>お問い合わせの種類</option>
+          <option value="0" @if(isset( $request ) && $request['category_id'] == 0) selected @endif>全て</option>
+          @foreach ($categories->all() as $category)
+          <option value="{{$category->id}}" @if(isset( $request ) && $request['category_id'] == $category->id) selected @endif>{{$category->content}}</option>
+          @endforeach
+        </select>
+      </div>
+      <div class="div__date">
+        <input type="text" name="date" id="datepicker" class="input__search-date" placeholder="年/月/日" @if (isset( $request )) value="{{$request['date']}}"@endif>
+      </div>
       <button class="button__search" formaction="/search">検索</button>
       <button class="button__reset" formaction="/reset">リセット</button>
     </form>
   </div>
+  <button class="button__export">エクスポート</button>
   {{ $contacts->links('vendor.pagination.topics') }}
   <table class="table__contacts">
     <tr class="tr__header">
-      <td>お名前</td>
-      <td>性別</td>
-      <td>メールアドレス</td>
-      <td>お問い合わせの種類</td>
-      <td></td>
+      <th>お名前</th>
+      <th>性別</th>
+      <th>メールアドレス</th>
+      <th>お問い合わせの種類</th>
+      <th></th>
     </tr>
     @foreach ($contacts->all() as $contact)
-    <tr>
+    <tr class="tr__contents">
       <td>{{$contact->getName()}}</td>
       <td>{{$contact->getGender()}}</td>
       <td>{{$contact->email}}</td>

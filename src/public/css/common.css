@@ -1,7 +1,10 @@
+*{
+  font-family: 'Merriweather', 'Noto Sans JP', sans-serif;}
+
 body{
   color: #8b7969;
   background-color: #fff;
-  font-family: 'Merriweather', 'Noto Sans JP', sans-serif;
+  /* font-family: 'Merriweather', 'Noto Sans JP', sans-serif; */
 }
 
 .header__inner{
@@ -13,17 +16,21 @@ body{
 .header__logo {
   text-decoration: none;
   font-size: 30px;
+  transform: translateX(15px);
+  margin: 15px 0;
 }
 
 .header__inner form{
-  margin: auto 8% auto 0;
+  margin: auto 30px auto 0;
 }
 
+/* ヘッダーボタン */
 .header__inner button{
   width: 80px;
-  height: 40px;
-  background-color: #82756A;
-  color: #fff;
+  height: 30px;
+  background-color: #F6F6F6;
+  color: #D9C6B5;
+  border: 1px solid #D9C6B5;
   cursor: pointer;
 }
 
@@ -49,6 +56,12 @@ body{
   margin: 0;
 }
 
+.form__error ul {
+  /* height: 30px; */
+  /* margin: 10px 0; */
+}
+
+/* 入力フォーム */
 ::placeholder {
   color: #A0A0A0;
 }
@@ -62,5 +75,6 @@ input, textarea, select{
 button{
   background-color: #82756A;
   color: #fff;
+  border: none;
   cursor: pointer;
 }

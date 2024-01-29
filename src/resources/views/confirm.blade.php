@@ -7,7 +7,7 @@
 @section('content')
 <div class="div__main">
   <h2 class="h2__confirm">Confirm</h2>
-  <form action="/store" method="POST" class="form__confirm">
+  <form action="/thanks" method="POST" class="form__confirm">
     @csrf
     <table class="table__confirm">
       <tr>

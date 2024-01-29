@@ -24,7 +24,7 @@ Route::get('/confirm', [
     ContactController::class, 'confirm'
 ]);
 
-Route::post('/store', [
+Route::post('/thanks', [
     ContactController::class, 'store'
 ]);
 
@@ -32,29 +32,9 @@ Route::delete('/delete', [
     ContactController::class, 'delete'
 ]);
 
-// Route::get('/thanks', function () {
-//     return view('thanks');
-// });
-
-// Route::get('/register', function () {
-//     return view('register');
-// });
-
-// Route::post('/register', [
-//     UserController::class, 'register'
-// ]);
-
-// Route::get('/admin', function () {
-//     return view('admin');
-// });
-
 Route::middleware('auth')->group(function () {
     Route::get('/admin', [AuthController::class, 'admin']);
 });
-
-// Route::get('/login', function () {
-//     return view('login');
-// });
 
 Route::get('/search', [
     ContactController::class, 'search'
