@@ -94,8 +94,12 @@ class Contact extends Model
     {
         // dd($date);
         if (!empty($date)) {
-            $query->where('created_at', $date)
-            ->orWhere('updated_at', $date);
+            $query->where(function ($query) use ($date) {
+            $query->whereDate("created_at", $date)
+                ->orWhereYear("created_at", $date,)
+                ->orWhereMonth("created_at", $date,)
+                ->orWhereDay("created_at", $date,);
+            });
         }
     }
 }
