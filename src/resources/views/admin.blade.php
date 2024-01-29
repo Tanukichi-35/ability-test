@@ -39,7 +39,9 @@
       <button class="button__reset" formaction="/reset">リセット</button>
     </form>
   </div>
-  <button class="button__export">エクスポート</button>
+  <form action="/export" method="GET" class="form__export">
+    <button class="button__export">エクスポート</button>
+  </form>
   {{ $contacts->links('vendor.pagination.topics') }}
   <table class="table__contacts">
     <tr class="tr__header">

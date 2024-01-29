@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ExportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,4 +43,8 @@ Route::get('/search', [
 
 Route::get('/reset', [
     ContactController::class, 'reset'
+]);
+
+Route::get('/export', [
+    ExportController::class, 'export'
 ]);
