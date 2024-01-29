@@ -11,7 +11,7 @@
     @csrf
     <div class="div__input">
       <label class="label__mail">メールアドレス<br>
-        <input type="email" name="email" class="input__mail" placeholder="例:test@example.com" value="{{ old('email') }}" >
+        <input type="text" name="email" class="input__mail" placeholder="例:test@example.com" value="{{ old('email') }}" >
       </label>
       <div class="form__error">
         <ul>
@@ -21,7 +21,7 @@
           </li>
           @enderror
         </ul>
-      </div>      
+      </div>
       <label class="label__password">パスワード<br>
         <input type="password" name="password" class="input__password" placeholder="例:coachtech1106">
       </label>

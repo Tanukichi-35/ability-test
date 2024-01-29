@@ -23,7 +23,7 @@
         </ul>
       </div>
       <label class="label__mail">メールアドレス<br>
-        <input type="email" name="email" class="input__mail" placeholder="例:test@example.com" value="{{ old('email') }}" >
+        <input type="text" name="email" class="input__mail" placeholder="例:test@example.com" value="{{ old('email') }}" >
       </label>
       <div class="form__error">
         <ul>
