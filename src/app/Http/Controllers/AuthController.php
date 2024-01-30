@@ -14,6 +14,12 @@ class AuthController extends Controller
         // return view('admin', compact('contacts'));
         $contacts = Contact::Paginate(7);
         $categories = Category::All();
+
+        setcookie('search_keyword');
+        setcookie('search_gender');
+        setcookie('search_category_id');
+        setcookie('search_date');
+
         return view('admin', compact('contacts', 'categories'));
     }
 }

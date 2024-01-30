@@ -46,13 +46,25 @@ class ContactController extends Controller
     public function search(Request $request){
         // dd($request->keyword);
         $contacts = Contact::with('category')->KeywordSearch($request->keyword)->GenderSearch($request->gender)->CategorySearch($request->category_id)->DateSearch($request->date)->Paginate(7);
-        // $contacts = Contact::with('category')->DateSearch($request->date)->CategorySearch($request->category_id)->GenderSearch($request->gender)->KeywordSearch($request->keyword)->Paginate(7);
         $categories = Category::all();
 
-        return view('admin', compact('contacts', 'categories', 'request'));
+        $response = response()->view('admin', compact('contacts', 'categories', 'request'));
+        $response->cookie('search_keyword', $request->Keyword, 3);
+        $response->cookie('search_gender', $request->gender, 3);
+        $response->cookie('search_category_id', $request->category_id, 3);
+        $response->cookie('search_date', $request->date, 3);
+
+        // return view('admin', compact('contacts', 'categories', 'request'));
+        return $response;
+
     }
 
     public function reset(){
+        setcookie('search_keyword');
+        setcookie('search_gender');
+        setcookie('search_category_id');
+        setcookie('search_date');
+
         return redirect('/admin');
     }
 }

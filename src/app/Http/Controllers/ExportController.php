@@ -6,18 +6,25 @@ use DateTime;
 use App\Models\Contact;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class ExportController extends Controller
 {
     public function export(Request $request)
     {
-        // dd($request);
-        $contacts = Contact::all();
+        // $contacts = Contact::all();
         $csvHeader = ['ID', '姓', '名', '性別', 'メールアドレス', '電話番号', '住所', '建物名', '問い合わせの種類', '問い合わせ内容', '作成日時', '更新日時'];
-        $csvData = $contacts->toArray();
+        // $csvData = $contacts->toArray();
         $date = new DateTime();
         $fileName = 'Contacts'.$date->format('_ymdHis').'.csv';
+
+        $contacts = Contact::with('category');
+        if ($request->hasCookie('search_keyword'))
+            $contacts = $contacts->KeywordSearch($request->cookie('search_keyword'))->GenderSearch($request->cookie('search_gender'))->CategorySearch($request->cookie('search_category_id'))->DateSearch($request->cookie('search_date'))->get();
+        else
+            $contacts = $contacts->get();
+        $csvData = $contacts->toArray();
 
         $response = new StreamedResponse(function () use ($csvHeader, $csvData) {
             $handle = fopen('php://output', 'w');
